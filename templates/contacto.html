@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contact-layout">
+
+  <!-- IZQUIERDA -->
+  <div class="contact-left">
+      <div class="contact-card">
+        <h3>Horario de Atención</h3>
+        <p>Carlos Viejo, Marchamalo!</p>
+        <p><strong>+34 676 80. 58 69</strong></p>
+        <p>L-V: 10:00 – 17:00 h</p>
+        <p>S: 10:00 – 13:00 h</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Proyectos a Medida</h3>
+        <p>Si tienes una idea en mente,</p>
+        <p>podemos desarrollarla contigo.</p>
+        <p>Adaptamos detalles y acabados a tu espacio.</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Te Acompañamos</h3>
+        <p>Resolveremos tus dudas antes,</p>
+        <p>durante y después de tu pedido.</p>
+        <p>Atención directa, sin intermediarios.</p>
+      </div>
+  </div>
+  <!-- CENTRO -->
+  <div class="contact-center">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+  </div>
+
+<!-- DERECHA -->
+<div class="contact-right">
+  <h3>Formulario de Contacto</h3>
+
+  <form class="contact-form" method="POST" action="{{ url_for('contacto') }}">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="email" name="email" placeholder="Email">
+    <input type="tel" name="telefono" placeholder="Teléfono">
+    <textarea name="mensaje" placeholder="Mensaje"></textarea>
+    <button type="submit">Enviar mensaje</button>
+  </form>
+</div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio · WoodPau{% endblock %}
+
+{% block content %}
+
+<! ----------------IMAGEN PANTALLA TOTAL PORTADA de la pantalla principal---------------------------->
+<header class="hero-slider">
+
+  <div id="heroCarousel"
+       class="carousel slide carousel-fade"
+       data-bs-ride="carousel"
+       data-bs-interval="5000">
+<! ----------------IMAGENES DEL MENU PRINCIPAL QUE VAN ROTANDO---------------------------->
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="/static/img/Portada/4.jpg" class="d-block w-100 hero-img" alt="">
+      </div>
+
+      <div class="carousel-item">
+        <img src="/static/img/Portada/5.jpg" class="d-block w-100 hero-img" alt="">
+      </div>
+
+      <div class="carousel-item">
+        <img src="/static/img/Portada/2.jpg" class="d-block w-100 hero-img" alt="">
+      </div>
+
+      <div class="carousel-item">
+        <img src="/static/img/Portada/1.jpg" class="d-block w-100 hero-img" alt="">
+      </div>
+
+      <div class="carousel-item">
+        <img src="/static/img/Portada/3.jpg" class="d-block w-100 hero-img" alt="">
+      </div>
+
+      <div class="carousel-item">
+        <img src="/static/img/Portada/6.jpg" class="d-block w-100 hero-img" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TEXTO HERO -->
+  <div class="hero-text">
+    <h1>Diseño que acompaña la infancia</h1>
+    <a href="/productos" class="btn btn-outline-light">
+      Ver productos
+    </a>
+  </div>
+
+</header>
+<! ----------------FIN IMAGEN PANTALLA TOTAL PORTADA--------------------------->
+
+{% endblock %}

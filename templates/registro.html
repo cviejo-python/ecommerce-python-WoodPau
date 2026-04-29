@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="registro-container">
+
+    <h2>Crear cuenta</h2>
+
+    <form method="POST" class="form-registro">
+
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" name="apellidos" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text" name="telefono" required>
+        </div>
+
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <label>Confirmar contraseña</label>
+            <input type="password" name="confirmar_password" required>
+        </div>
+
+        <button type="submit" class="btn-registro">
+            Crear cuenta
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

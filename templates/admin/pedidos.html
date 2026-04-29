@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-container">
+
+    <div class="admin-header">
+        <h2>Gestión de Pedidos</h2>
+
+        <a href="{{ url_for('admin_panel') }}" class="btn-admin-secondary">
+            ← Atrás
+        </a>
+    </div>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for pedido in pedidos %}
+            <tr>
+                <td>#{{ pedido.id_pedido }}</td>
+                <td>
+                    {{ pedido.usuario.nombre_cliente }}
+                    {{ pedido.usuario.apellidos_cliente }}
+                </td>
+                <td>{{ pedido.total }} €</td>
+                <td>
+                    <span class="estado estado-{{ pedido.estado }}">
+                        {{ pedido.estado }}
+                    </span>
+                </td>
+                <td>{{ pedido.fecha.strftime("%d/%m/%Y") }}</td>
+                <td>
+                    <a href="{{ url_for('admin_ver_pedido', id=pedido.id_pedido) }}"
+                       class="btn-action btn-edit">
+                        Ver
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados de búsqueda{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+  <div class="container">
+
+    <h1 class="mb-4">
+      Resultados para "{{ query }}"
+    </h1>
+
+    <div class="row">
+
+      {% for producto in resultados %}
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <a href="{{ url_for('producto_detalle', id_producto=producto.id_producto) }}"
+           class="text-decoration-none text-dark">
+          <div class="card h-100 border-0">
+
+            {% if producto.imagenes %}
+              <img
+                src="{{ url_for('static', filename=producto.imagenes[0].ruta_imagen) }}"
+                class="card-img-top"
+                alt="{{ producto.nombre_producto }}">
+            {% else %}
+              <img
+                src="{{ url_for('static', filename='img/placeholder.jpg') }}"
+                class="card-img-top"
+                alt="Sin imagen">
+            {% endif %}
+
+            <div class="card-body text-center">
+              <h6 class="text-uppercase mb-1">
+                {{ producto.nombre_producto }}
+              </h6>
+
+              <p class="text-muted small mb-2">
+                {{ producto.descripcion }}
+              </p>
+
+              <p class="fw-bold mb-0">
+                {{ producto.precio }} €
+              </p>
+            </div>
+
+          </div>
+        </a>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

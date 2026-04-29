@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO EXPERIENCIA -->
+<section class="experience-hero">
+  <img src="{{ url_for('static', filename='img/taller_12.jpg') }}" alt="Proceso artesanal">
+
+  <div class="experience-hero-content">
+    <h1>EXPERIENCIA</h1>
+    <p class="subtitle">Más que muebles, una forma de habitar el espacio</p>
+    <p class="intro">
+      Diseñamos piezas que no solo ocupan un lugar,
+      sino que transforman la manera en que se vive.
+      Cada detalle está pensado para crear equilibrio,
+      calidez y permanencia.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- MANIFIESTO -->
+<section class="manifiesto-experiencia">
+  <div class="manifiesto-inner">
+      <p>Diseñamos con intención.</p>
+      <p>Construimos con respeto por la materia.</p>
+      <p>Creemos en la belleza que nace de la sencillez.</p>
+      <p>El espacio también se construye con calma.</p>
+      <div class="manifiesto-line"></div>
+  </div>
+</section>
+
+
+<section class="experience-grid">
+
+  <div class="experience-line"></div>
+
+  <!-- BLOQUE 1 -->
+  <div class="experience-row fade-in">
+    <div class="experience-image">
+      <img src="{{ url_for('static', filename='img/taller_01.jpg') }}" alt="Proceso artesanal">
+    </div>
+    <div class="experience-text">
+      <div class="text-card">
+        <h3>Tiempo</h3>
+        <p>Cada pieza requiere paciencia. El proceso es tan importante como el resultado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 2 -->
+  <div class="experience-row reverse fade-in alt-bg">
+    <div class="experience-image">
+      <img src="{{ url_for('static', filename='img/taller_05.jpg') }}" alt="Detalle madera">
+    </div>
+    <div class="experience-text">
+      <div class="text-card">
+        <h3>Materia</h3>
+        <p>Seleccionamos maderas por su carácter, su veta y su historia.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 3 -->
+  <div class="experience-row fade-in">
+    <div class="experience-image">
+      <img src="{{ url_for('static', filename='img/taller_08.jpg') }}" alt="Banco de trabajo">
+    </div>
+    <div class="experience-text">
+      <div class="text-card">
+        <h3>Precisión</h3>
+        <p>Ensamblajes limpios, proporciones equilibradas y atención al detalle.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 4 -->
+  <div class="experience-row reverse fade-in alt-bg">
+    <div class="experience-image">
+      <img src="{{ url_for('static', filename='img/taller_07.jpg') }}" alt="Herramientas">
+    </div>
+    <div class="experience-text">
+      <div class="text-card">
+        <h3>Tradición</h3>
+        <p>Técnicas que respetan el oficio y el paso del tiempo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 5 -->
+  <div class="experience-row fade-in">
+    <div class="experience-image">
+      <img src="{{ url_for('static', filename='img/taller_06.jpg') }}" alt="Acabado">
+    </div>
+    <div class="experience-text">
+      <div class="text-card">
+        <h3>Carácter</h3>
+        <p>Muebles que no siguen modas, sino principios.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 6 -->
+  <div class="experience-row reverse fade-in alt-bg">
+    <div class="experience-image">
+      <img src="{{ url_for('static', filename='img/taller_03.jpg') }}" alt="Resultado final">
+    </div>
+    <div class="experience-text">
+      <div class="text-card">
+        <h3>Resultado</h3>
+        <p>Piezas pensadas para integrarse con naturalidad en el hogar.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+
+    <h2>Mensaje de {{ mensaje.nombre }}</h2>
+
+    <p><strong>Fecha:</strong> {{ mensaje.fecha_envio.strftime("%d/%m/%Y %H:%M") }}</p>
+    <p><strong>Email:</strong> {{ mensaje.email }}</p>
+    <p><strong>Teléfono:</strong> {{ mensaje.telefono or "No indicado" }}</p>
+    <p><strong>Estado:</strong> {{ mensaje.estado }}</p>
+
+    <hr>
+
+    <div class="mensaje-box">
+        {{ mensaje.mensaje }}
+    </div>
+
+    <br>
+
+    <a href="{{ url_for('admin_mensajes') }}" class="btn-admin-secondary">
+        ← Volver
+    </a>
+
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesión · WoodPau{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container" style="max-width: 400px;">
+
+    <h2 class="mb-4 text-center">Iniciar sesión</h2>
+
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form method="post">
+
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               class="form-control"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label>Contraseña</label>
+        <input type="password"
+               name="password"
+               class="form-control"
+               required>
+      </div>
+
+      <button class="btn btn-dark w-100">
+        Entrar
+      </button>
+
+    </form>
+
+  </div>
+</section>
+{% endblock %}

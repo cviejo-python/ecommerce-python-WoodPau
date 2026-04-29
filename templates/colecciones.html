@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Colecciones · WoodPau{% endblock %}
+
+{% block content %}
+
+<section class="collections py-5">
+  <div class="container">
+
+    <!-- TÍTULO -->
+    <div class="text-center mb-4">
+      <h1 class="fw-light">Colecciones</h1>
+      <p class="text-muted">
+        Universos pensados para acompañar la infancia
+      </p>
+    </div>
+
+    <!-- GRID COLECCIONES -->
+    <div class="row g-4">
+
+      <div class="col-12 col-md-3">
+        <a href="/colecciones/camas-casita" class="collection-card">
+          <img src="/static/img/litera_casita_02.jpg" alt="">
+          <div class="collection-overlay">
+            <h2>Camas Casita</h2>
+            <p>Dormir dentro de una historia única</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-3">
+        <a href="/colecciones/muebles" class="collection-card">
+          <img src="/static/img/mueble_vitrina_01.jpg" alt="">
+          <div class="collection-overlay">
+            <h2>Muebles</h2>
+            <p>Funcionales, honestos, duraderos</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-3">
+        <a href="/colecciones/decoracion" class="collection-card">
+          <img src="/static/img/decoracion_01.jpg" alt="">
+          <div class="collection-overlay">
+            <h2>Decoración</h2>
+            <p>Pequeños detalles, grandes mundos</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-3">
+        <a href="/colecciones/temporada" class="collection-card">
+          <img src="/static/img/papa_noel.jpg" alt="">
+          <div class="collection-overlay">
+            <h2>Temporada</h2>
+            <p>Momentos que vuelven cada año</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,182 @@
+<!-- ================= ENCABEZADO / NAVBAR ================= -->
+
+<!--Con nav.html creamos este encabezado y lo llamamos desde el resto de htmls -->
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+    <a class="navbar-brand" href="/">WoodPau</a>
+
+    <!-- BOTÓN MOBILE -->
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- CONTENIDO -->
+    <div class="collapse navbar-collapse" id="navbarColor01">
+
+      <!-- MENÚ CENTRADO -->
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">Inicio</a>
+        </li>
+
+        <!-- DROPDOWN PRODUCTOS -->
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle"
+             href="/productos"
+             id="productosDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Productos
+          </a>
+
+          <div class="dropdown-menu mega-menu shadow">
+            <div class="container">
+              <div class="row g-4 py-4">
+
+                <!-- TODOS LOS PRODUCTOS -->
+                <div class="col-6 col-md-4">
+                  <a href="/productos" class="mega-item">
+                    <i class="bi bi-grid"></i>
+                    <span>Todos los productos</span>
+                  </a>
+                </div>
+
+                <!-- CATEGORÍAS -->
+                <div class="col-6 col-md-4">
+                  <a href="/productos?categoria=Camas&categoria=Infantiles" class="mega-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Camas infantiles</span>
+                  </a>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <a href="/productos?categoria=Muebles" class="mega-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Muebles</span>
+                  </a>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <a href="/productos?categoria=Casitas&categoria=Arbol" class="mega-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Casitas árbol</span>
+                  </a>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <a href="/productos?categoria=Decoracion" class="mega-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Decoracion</span>
+                  </a>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <a href="/productos?categoria=Temporada" class="mega-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Temporada</span>
+                  </a>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/colecciones">Colecciones</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/experiencia">Experiencia</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/contacto">Contacto</a>
+        </li>
+
+      </ul>
+
+      <!-- DERECHA: CARRITO, USUARIO, BUSCADOR -->
+      <div class="d-flex align-items-center gap-3">
+
+        <!-- CARRITO -->
+        <a href="/carrito" class="text-light fs-4 position-relative">
+          <i class="bi bi-cart-fill"></i>
+
+          {% if carrito_items > 0 %}
+            <span class="position-absolute top-0 start-100 translate-middle
+                         badge rounded-pill bg-danger">
+              {{ carrito_items }}
+            </span>
+          {% endif %}
+        </a>
+
+        <!-- USUARIO -->
+        <div class="dropdown">
+          <a href="#"
+             class="text-light fs-4 dropdown-toggle"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">
+            <i class="bi bi-person-check-fill"></i>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <span class="dropdown-item-text fw-bold">
+                👋 {{ "Hola " + usuario.nombre_cliente if usuario else "Invitado" }}
+              </span>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+                {% if usuario %}
+                  <li><a class="dropdown-item" href="/perfil">Mi perfil</a></li>
+                  {% if usuario.es_admin %}
+                      <li>
+                          <a class="dropdown-item fw-bold text-primary"
+                             href="{{ url_for('admin_panel') }}">
+                             Admin  ⚙️
+                          </a>
+                      </li>
+                  {% else %}
+                      <li><a class="dropdown-item" href="/pedidos">Mis pedidos</a></li>
+                  {% endif %}
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item text-danger" href="/logout">Cerrar sesión</a></li>
+                {% else %}
+                  <li><a class="dropdown-item" href="/login">Iniciar sesión</a></li>
+                  <li><a class="dropdown-item" href="/registro">Registrarse</a></li>
+                {% endif %}
+
+          </ul>
+        </div>
+
+        <!-- BUSCADOR -->
+        <form class="d-flex" method="get" action="{{ url_for('buscar') }}">
+          <input class="form-control me-2"
+                 type="search"
+                 name="q"
+                 placeholder="¿Qué buscas?"
+                 required>
+          <button class="btn btn-outline-light" type="submit">
+            Buscar
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= FIN ENCABEZADO ================= -->
+

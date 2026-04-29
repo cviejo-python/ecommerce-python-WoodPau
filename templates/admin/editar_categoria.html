@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="form-container">
+    <h2>Editar Categoría</h2>
+
+    <form method="POST">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text"
+                   name="nombre_categoria"
+                   value="{{ categoria.nombre_categoria }}"
+                   required>
+        </div>
+
+        <button type="submit" class="btn-guardar">
+            Guardar cambios
+        </button>
+    </form>
+</div>
+
+{% endblock %}

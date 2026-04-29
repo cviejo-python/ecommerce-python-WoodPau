@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5 pedidos-page">
+
+    <h2 class="mb-5 text-center">
+        Mis pedidos
+    </h2>
+
+    {% if pedidos %}
+
+        <div class="accordion" id="pedidosAccordion">
+
+            {% for pedido in pedidos %}
+
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#pedido{{ pedido.id_pedido }}"
+                    >
+
+                        <div class="d-flex align-items-center w-100">
+
+                            <div>
+
+                                <span class="fw-semibold">
+                                    Pedido #{{ pedido.id_pedido }}
+                                </span>
+
+                                <span class="estado-badge estado-{{ pedido.estado }} ms-3">
+                                    {{ pedido.estado }}
+                                </span>
+
+                            </div>
+
+                            <div class="pedido-total ms-auto">
+                                {{ pedido.total }} €
+                            </div>
+
+                        </div>
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="pedido{{ pedido.id_pedido }}"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#pedidosAccordion"
+                >
+
+                    <div class="accordion-body">
+
+                        <!-- BARRA PROGRESO PEDIDO -->
+                        <span class="pedido-fecha ms-2">
+                            · {{ pedido.fecha.strftime("%d %b %Y") }}
+                        </span>
+                        <div class="pedido-progreso">
+
+                            <div class="paso {% if pedido.estado in ['pagado','preparando','enviado','entregado'] %}activo{% endif %}">
+                                Pagado
+                            </div>
+
+                            <div class="linea {% if pedido.estado in ['preparando','enviado','entregado'] %}activa{% endif %}"></div>
+
+                            <div class="paso {% if pedido.estado in ['preparando','enviado','entregado'] %}activo{% endif %}">
+                                Preparando
+                            </div>
+
+                            <div class="linea {% if pedido.estado in ['enviado','entregado'] %}activa{% endif %}"></div>
+
+                            <div class="paso {% if pedido.estado in ['enviado','entregado'] %}activo{% endif %}">
+                                Enviado
+                            </div>
+
+                            <div class="linea {% if pedido.estado == 'entregado' %}activa{% endif %}"></div>
+
+                            <div class="paso {% if pedido.estado == 'entregado' %}activo{% endif %}">
+                                Entregado
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRODUCTOS DEL PEDIDO -->
+
+                        {% for linea in pedido.lineas %}
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <span>
+                                {{ linea.nombre_producto }}
+                                (x{{ linea.cantidad }})
+                            </span>
+
+                            <span>
+                                {{ linea.precio_unitario * linea.cantidad }} €
+                            </span>
+
+                        </div>
+
+                        {% endfor %}
+
+                        <hr>
+
+                        <div class="text-end fw-bold">
+                            Total: {{ pedido.total }} €
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="text-center text-muted">
+            Aún no has realizado ningún pedido.
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

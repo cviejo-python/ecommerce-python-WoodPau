@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO DECORACIÓN -->
+<section class="collection-hero hero-decoracion">
+  <div class="hero-container">
+    <img src="{{ url_for('static', filename='img/llavero_casita_2.jpg') }}" alt="Decoración infantil">
+  </div>
+  <div class="collection-hero-content">
+    <h1>DECORACIÓN</h1>
+    <p class="subtitle">Pequeños detalles, grandes historias</p>
+    <p class="intro">
+      Elementos que transforman un espacio en un refugio.
+      Texturas suaves, colores cálidos y piezas que acompañan el crecimiento.
+    </p>
+  </div>
+</section>
+
+<!-- MANIFIESTO DECORACION-->
+<section class="collection-manifesto">
+  <p>No se trata solo de decorar.</p>
+  <p>Se trata de crear atmósferas que inviten a quedarse.</p>
+  <p>Donde cada textura, cada forma y cada color acompañen la imaginación.</p>
+  <p>Pequeños detalles que hacen grande un espacio.</p>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="collection-products container">
+  <div class="row g-4">
+
+    {% for producto in productos %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card product-card h-100">
+
+        {% if producto.imagenes %}
+          <img src="{{ url_for('static', filename=producto.imagenes[0].ruta_imagen) }}"
+               class="card-img-top"
+               alt="{{ producto.nombre_producto }}">
+        {% endif %}
+
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+          <p class="card-text">{{ producto.descripcion }}</p>
+
+          <a href="{{ url_for('producto_detalle', id_producto=producto.id_producto) }}"
+             class="btn btn-outline-dark btn-sm">
+            Ver detalles
+          </a>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% endblock %}

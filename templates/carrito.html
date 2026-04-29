@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Carrito · WoodPau{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">🛒 Mi carrito</h2>
+
+  {% if productos_carrito %}
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for item in productos_carrito %}
+          <tr>
+
+            <!-- IMAGEN PEQUEÑA -->
+                <td style="width: 80px">
+                  {% if item.producto.imagenes %}
+                    <img
+                      src="{{ url_for('static', filename=item.producto.imagenes[0].ruta_imagen) }}"
+                      alt="{{ item.producto.nombre_producto }}"
+                      style="width: 120px; height: 120px; object-fit: cover;"
+                      class="rounded">
+                  {% else %}
+                    <span class="text-muted">Sin imagen</span>
+                  {% endif %}
+                </td>
+
+
+            <td>{{ item.producto.nombre_producto }}</td>
+
+            <td>{{ item.producto.precio }} €</td>
+
+            <td>
+              <div class="d-flex align-items-center gap-2">
+                <a href="{{ url_for('restar_cantidad', id_producto=item.producto.id_producto) }}"
+                   class="btn btn-outline-dark btn-xs px-2">−</a>
+
+                <span class="cantidad-mini">{{ item.cantidad }}</span>
+
+                <a href="{{ url_for('sumar_cantidad', id_producto=item.producto.id_producto) }}"
+                   class="btn btn-outline-dark btn-xs px-2">+</a>
+
+              </div>
+            </td>
+
+
+            <td class="fw-bold">
+              {{ item.producto.precio * item.cantidad }} €
+            </td>
+
+            <td class="text-end">
+              <a href="{{ url_for('eliminar_producto', id_producto=item.producto.id_producto) }}"
+                 class="text-muted text-decoration-none eliminar-btn"
+                 title="Eliminar producto">
+                <i class="bi bi-trash"></i>
+              </a>
+            </td>
+
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-end align-items-center gap-3 mt-4">
+      <h4 class="mb-0">
+        Total:
+        <span class="fw-bold">{{ total }} €</span>
+      </h4>
+
+        <a href="/pagar" class="btn btn-dark btn-sm px-4">
+          <i class="bi bi-credit-card"></i> Pagar
+        </a>
+
+    </div>
+
+
+  {% else %}
+    <p>Tu carrito está vacío 🛒</p>
+  {% endif %}
+</div>
+{% endblock %}

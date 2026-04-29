@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Productos · WoodPau{% endblock %}
+
+{% block content %}
+
+<section class="collection-hero hero-camas">
+  <div class="hero-container">
+    <img src="/static/img/cama_king_06.jpg" alt="Camas Casita">
+  </div>
+
+  <div class="collection-hero-content">
+    <h1>Camas Casita</h1>
+    <p class="subtitle">Dormir dentro de una mágica historia</p>
+    <p class="intro">
+      <p>Un pequeño refugio donde cada noche</p>
+      <p>comienza una aventura. Castillos secretos,</p>
+      <p>bosques encantados y sueños que crecen sin prisa. </p>
+      <p></p>
+    </p>
+  </div>
+</section>
+
+
+<!-- MANIFIESTO -->
+<section class="collection-manifesto">
+  <p>Diseñadas para imaginar.</p>
+  <p>Construidas para durar.</p>
+  <p>Pensadas para acompañar la infancia.</p>
+</section>
+
+
+<!-- GRID PRODUCTOS -->
+<section class="collection-products container">
+  <div class="row g-4">
+
+    <!-- Aquí van las cards de producto -->
+
+<section class="collection-products container">
+  <div class="row g-4">
+
+    {% for producto in productos %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card product-card h-100">
+
+        {% if producto.imagenes %}
+          <img src="{{ url_for('static', filename=producto.imagenes[0].ruta_imagen) }}"
+               class="card-img-top"
+               alt="{{ producto.nombre_producto }}">
+        {% endif %}
+
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+          <p class="card-text">{{ producto.descripcion }}</p>
+
+          <a href="{{ url_for('producto_detalle', id_producto=producto.id_producto) }}"
+             class="btn btn-outline-dark btn-sm">
+            Ver detalles
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+  </div>
+</section>
+
+
+
+  </div>
+</section>
+{% endblock %}

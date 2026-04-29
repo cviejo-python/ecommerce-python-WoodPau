@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <h2 class="mb-4 text-center">
+                Selecciona dirección de envío
+            </h2>
+
+            {% for direccion in direcciones %}
+
+                <div class="card mb-3 shadow-sm border-0">
+
+                    <div class="card-body d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <div class="fw-semibold">
+                                {{ direccion.calle }} {{ direccion.numero }}
+                            </div>
+
+                            <div class="text-muted small">
+                                {{ direccion.ciudad }} · {{ direccion.provincia }}
+                            </div>
+
+                            <div class="text-muted small">
+                                {{ direccion.codigo_postal }} · {{ direccion.pais }}
+                            </div>
+
+                        </div>
+
+                        <div class="text-end">
+
+                            <a
+                                href="{{ url_for('seleccionar_direccion', id_direccion=direccion.id_direccion) }}"
+                                class="btn btn-dark btn-sm mb-2"
+                            >
+                                Usar dirección
+                            </a>
+
+                            <div>
+
+                                <a
+                                    href="{{ url_for('editar_direccion', id_direccion=direccion.id_direccion) }}"
+                                    class="text-decoration-none me-3 small"
+                                >
+                                    Editar
+                                </a>
+
+                                <a
+                                    href="{{ url_for('eliminar_direccion', id_direccion=direccion.id_direccion) }}"
+                                    class="text-danger text-decoration-none small"
+                                    onclick="return confirm('¿Eliminar esta dirección?')"
+                                >
+                                    Eliminar
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+            <div class="text-center mt-4">
+
+                <a
+                    href="{{ url_for('nueva_direccion') }}"
+                    class="btn btn-outline-dark"
+                >
+                    Añadir nueva dirección
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

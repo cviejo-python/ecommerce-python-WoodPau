@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO TEMPORADA -->
+<section class="collection-hero hero-temporada">
+  <div class="hero-container">
+    <img src="{{ url_for('static', filename='img/papa_noel_02.jpg') }}" alt="Colección Temporada">
+  </div>
+
+  <div class="collection-hero-content">
+    <h1>TEMPORADA</h1>
+    <p class="subtitle">Ediciones que siguen el ritmo del año</p>
+    <p class="intro">
+      Piezas que nacen con cada estación.
+      Colores, texturas y detalles que acompañan momentos especiales.
+    </p>
+  </div>
+</section>
+
+<!-- MANIFIESTO TEMPORADA -->
+<section class="collection-manifesto">
+  <p>Cada temporada tiene su magia.</p>
+  <p>Desde la calidez del invierno hasta la luz suave del verano,</p>
+  <p>creamos pequeñas colecciones que transforman los espacios</p>
+  <p>y celebran los momentos que importan.</p>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="collection-products container">
+  <div class="row g-4">
+
+    {% for producto in productos %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card product-card h-100">
+
+        {% if producto.imagenes %}
+          <img src="{{ url_for('static', filename=producto.imagenes[0].ruta_imagen) }}"
+               class="card-img-top"
+               alt="{{ producto.nombre_producto }}">
+        {% endif %}
+
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+          <p class="card-text">{{ producto.descripcion }}</p>
+
+          <a href="{{ url_for('producto_detalle', id_producto=producto.id_producto) }}"
+             class="btn btn-outline-dark btn-sm">
+            Ver detalles
+          </a>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% endblock %}

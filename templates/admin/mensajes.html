@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-container">
+
+    <div class="admin-header">
+        <h2>Mensajes de Contacto</h2>
+
+        <a href="{{ url_for('admin_panel') }}" class="btn-admin-secondary">
+            ← Atrás
+        </a>
+    </div>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mensaje in mensajes %}
+            <tr>
+                <td>{{ mensaje.id_mensaje }}</td>
+                <td>{{ mensaje.fecha_envio.strftime("%d/%m/%Y") }}</td>
+                <td>{{ mensaje.nombre }}</td>
+                <td>{{ mensaje.email }}</td>
+                <td>{{ mensaje.telefono or "-" }}</td>
+                <td>
+                    {% if mensaje.estado == "pendiente" %}
+                        <span class="estado estado-pendiente">Pendiente</span>
+                    {% elif mensaje.estado == "leido" %}
+                        <span class="estado estado-leido">Leído</span>
+                    {% elif mensaje.estado == "respondido" %}
+                        <span class="estado estado-respondido">Respondido</span>
+                    {% endif %}
+                </td>
+
+                <td class="acciones">
+
+                    <a href="{{ url_for('admin_ver_mensaje', id=mensaje.id_mensaje) }}"
+                       class="btn-action btn-edit">
+                        Ver
+                    </a>
+
+                    {% if mensaje.estado != "respondido" %}
+                        <form method="POST"
+                              action="{{ url_for('admin_marcar_mensaje_respondido', id=mensaje.id_mensaje) }}"
+                              style="display:inline;">
+                            <button type="submit" class="btn-action btn-success">
+                                Marcar como respondido
+                            </button>
+                        </form>
+                    {% endif %}
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

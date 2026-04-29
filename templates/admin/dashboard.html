@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="admin-panel-wrapper">
+
+    <div class="admin-panel-box">
+        <h1>Panel de Administración</h1>
+
+        <div class="admin-links">
+            <a href="/admin/productos" class="admin-link-card">
+                Gestionar productos
+            </a>
+
+            <a href="/admin/categorias" class="admin-link-card">
+                Gestionar categorías
+            </a>
+
+            <a href="/admin/pedidos" class="admin-link-card">
+                Ver pedidos
+            </a>
+
+            <a href="/admin/mensajes" class="admin-link-card">
+                Ver mensajes contacto
+            </a>
+        </div>
+    </div>
+
+</div>
+<div class="alerta-mensajes">
+    <span class="texto-alerta">Mensajes pendientes</span>
+    <div class="contador-alerta">
+        {{ mensajes_pendientes }}
+    </div>
+</div>
+{% endblock %}

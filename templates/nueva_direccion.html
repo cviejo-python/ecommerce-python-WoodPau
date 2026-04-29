@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <h3 class="mb-4 text-center">
+                        Nueva dirección
+                    </h3>
+
+                    <form method="POST">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Calle
+                            </label>
+
+                            <input
+                                type="text"
+                                name="calle"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Número
+                            </label>
+
+                            <input
+                                type="text"
+                                name="numero"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Ciudad
+                            </label>
+
+                            <input
+                                type="text"
+                                name="ciudad"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Provincia
+                            </label>
+
+                            <input
+                                type="text"
+                                name="provincia"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Código postal
+                            </label>
+
+                            <input
+                                type="text"
+                                name="codigo_postal"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                País
+                            </label>
+
+                            <input
+                                type="text"
+                                name="pais"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="d-grid">
+
+                            <button
+                                type="submit"
+                                class="btn btn-dark"
+                            >
+                                Guardar dirección
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

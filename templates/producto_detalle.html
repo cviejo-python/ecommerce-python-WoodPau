@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}{{ producto.nombre_producto }} · WoodPau{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+
+    <div class="row align-items-start">
+
+      <!-- MINIATURAS -->
+      <div class="col-md-2">
+        {% for imagen in producto.imagenes %}
+          <a href="{{ url_for('producto_detalle',
+                              id_producto=producto.id_producto,
+                              img=imagen.ruta_imagen) }}">
+            <img
+              src="{{ url_for('static', filename=imagen.ruta_imagen) }}"
+              class="miniatura-cuadrada mb-2"
+              alt="">
+          </a>
+        {% endfor %}
+      </div>
+
+      <!-- IMAGEN PRINCIPAL -->
+      <div class="col-md-5 text-center">
+        {% if img_activa %}
+          <div class="contenedor-img-principal">
+            <img
+              src="{{ url_for('static', filename=img_activa) }}"
+              class="img-principal"
+              alt="{{ producto.nombre_producto }}">
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- INFO PRODUCTO -->
+      <div class="col-md-5">
+        <h1 class="mb-2">{{ producto.nombre_producto }}</h1>
+        <p class="text-muted">{{ producto.descripcion }}</p>
+
+        <p class="fs-4 fw-bold">{{ producto.precio }} €</p>
+
+        <!-- BOTONES -->
+        <div class="d-flex gap-2 mb-3">
+
+          <!-- FAVORITO -->
+            <a href="{{ url_for('cambiar_favorito', id_producto=producto.id_producto) }}"
+               class="btn btn-favorito {{ 'btn-danger' if es_favorito else 'btn-outline-danger' }}">
+              {{ '❤️' if es_favorito else '🤍' }} Favorito
+            </a>
+
+
+          <!-- CARRITO -->
+            <a href="{{ url_for('agregar_carrito', id_producto=producto.id_producto) }}"
+               class="btn btn-outline-dark">
+              🛒 Añadir al carrito
+            </a>
+
+        </div>
+
+        <hr>
+
+        <ul class="list-unstyled">
+          <li><strong>Altura:</strong> {{ producto.altura }} cm</li>
+          <li><strong>Ancho:</strong> {{ producto.ancho }} cm</li>
+          <li><strong>Fondo:</strong> {{ producto.fondo }} cm</li>
+          <li><strong>Stock:</strong> {{ producto.stock }}</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="form-container">
+    <h2>Nueva Categoría</h2>
+
+    <form method="POST">
+        <div class="form-group">
+            <label>Nombre de la categoría</label>
+            <input type="text" name="nombre_categoria" required>
+        </div>
+
+        <button type="submit" class="btn-guardar">
+            Crear categoría
+        </button>
+    </form>
+</div>
+
+{% endblock %}
