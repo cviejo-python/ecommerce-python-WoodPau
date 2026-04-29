@@ -40,11 +40,37 @@ Acceso local:
 
 🎯 Objetivo
 
+## 📸 Aqui muestro algunos de los pantallazos del proyecto
+
+### 🏠 Portada
+![Portada](Portada.png)
+
+### 🧩 Colecciones
+![Colecciones](Colecciones.png)
+
+### 🛒 Carrito de compra
+![Carrito](carrito_compra.png)
+
+### 👤 Perfil
+![Perfil](perfil.png)
+
+### 📦 Producto
+![Producto](producto..png)
+
+### ➕ Nuevo producto
+![Nuevo producto](nuevo_producto..png)
+
+### 📋 Pedido
+![Pedido](pedido..png)
+
+### ⚙️ Panel de administración
+![Admin](panel_administracion..png)
+
 Simular un entorno real de desarrollo backend, aplicando buenas prácticas con Python y construyendo una aplicación completa de tipo e-commerce.
 
-📄 Documentación
+## 📄 Documentación
 
-👉 Ver documentación completa del proyecto
+📘 [Memoria del proyecto](documentacion/Memoria_Proyecto_WOODPAU.docx)
 
 📫 Contacto
 📧 cviejo10@gmail.com
