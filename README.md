@@ -53,21 +53,13 @@ Aplicación estructurada siguiendo el patrón **MVC (Modelo-Vista-Controlador)**
 Esto facilita el mantenimiento y la escalabilidad del proyecto.
 
 ---
+## 🎯 Objetivo
 
-## ▶️ Ejecución
+Simular un entorno real de desarrollo backend, aplicando buenas prácticas con Python y construyendo una aplicación completa de tipo **e-commerce**.
 
-```bash
-git clone https://github.com/cviejo-python/ecommerce-python-app.git
-cd ecommerce-python-app
+---
 
-python -m venv venv
-venv\Scripts\activate   # En Windows
-
-pip install -r requirements.txt
-python main.py
-🎯 Objetivo
-
-## 📸 Aqui muestro algunos de los pantallazos del proyecto
+## 📸 Capturas del proyecto
 
 ### 🏠 Portada
 ![Portada](Pantallazos/Portada.png)
@@ -91,14 +83,17 @@ python main.py
 ![Pedido](Pantallazos/pedido..png)
 
 ### ⚙️ Panel de administración
-![Admin](Pantallazos/panel_administracion..png)
+![Panel de administración](Pantallazos/panel_administracion..png)
 
-Simular un entorno real de desarrollo backend, aplicando buenas prácticas con Python y construyendo una aplicación completa de tipo e-commerce.
+---
 
 ## 📄 Documentación
 
 📘 [Memoria del proyecto](documentacion/Memoria_Proyecto_WOODPAU.docx)
 
-📫 Contacto
-📧 cviejo10@gmail.com
-💻 https://github.com/cviejo-python
+---
+
+## 📫 Contacto
+
+- 📧 [cviejo10@gmail.com](mailto:cviejo10@gmail.com)  
+- 💻 [GitHub](https://github.com/cviejo-python)
