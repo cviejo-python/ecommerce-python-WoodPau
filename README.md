@@ -87,12 +87,6 @@ Simular un entorno real de desarrollo backend, aplicando buenas prácticas con P
 
 ---
 
-## 📄 Documentación
-
-📘 [Memoria del proyecto](documentacion/Memoria_Proyecto_WOODPAU.docx)
-
----
-
 ## 📫 Contacto
 
 - 📧 [cviejo10@gmail.com](mailto:cviejo10@gmail.com)  
